@@ -8,6 +8,11 @@ This repository contains an Emotion Detection system designed to process custome
 - Use of pre-trained Hugging Face transformer model for emotion detection
 - Flask-based web server for interaction
 
+## Demo 
+To see a demo of the Emotion-Detector in action, watch the following YouTube video:
+
+[![Emotion-Detector Demo](https://img.youtube.com/vi/iPis4YlMZq0/0.jpg)](https://youtu.be/iPis4YlMZq0)
+
 ## Installation and Usage
 Step 1: Clone the Repository
 First, clone the repository to your local machine:
