@@ -15,9 +15,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           CLONES=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
-            "https://api.github.com/repos/YOUR_USERNAME/YOUR_REPO_NAME/traffic/clones" | jq '.count')
+            "https://api.github.com/repos/Shen-po-heng/Mini-Project-Emotion-Detector/traffic/clones" | jq '.count')
           VISITS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
-            "https://api.github.com/repos/YOUR_USERNAME/YOUR_REPO_NAME/traffic/views" | jq '.count')
+            "https://api.github.com/repos/Shen-po-heng/Mini-Project-Emotion-Detector/traffic/views" | jq '.count')
           
           echo "Clones: $CLONES"
           echo "Visits: $VISITS"
