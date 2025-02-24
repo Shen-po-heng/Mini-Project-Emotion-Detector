@@ -3,6 +3,8 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/Shen-po-heng/Mini-Project-Emotion-Detector)](https://github.com/Shen-po-heng/Mini-Project-Emotion-Detector/commits/main)
 [![GitHub workflow](https://github.com/Shen-po-heng/Mini-Project-Emotion-Detector/actions/workflows/test.yml/badge.svg)](https://github.com/Shen-po-heng/Mini-Project-Emotion-Detector/actions/workflows/test.yml)
 
+⭐ If you found this mini project useful, consider giving it a star!
+
 ## Description
 This repository contains an Emotion Detection system designed to process customer feedback in text format and analyze the emotions expressed. The system is intended to be used for performing analytics on customer feedback for signature products, helping businesses gain insights into customer sentiment and improve their offerings based on emotional responses.
 
