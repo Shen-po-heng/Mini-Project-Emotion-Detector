@@ -1,6 +1,7 @@
 # Emotion-Detector
-- Clones: null
-- Visits: null
+- Clone Count: [PLACEHOLDER]
+- Visit Count: [PLACEHOLDER]
+
 ## Description
 This repository contains an Emotion Detection system designed to process customer feedback in text format and analyze the emotions expressed. The system is intended to be used for performing analytics on customer feedback for signature products, helping businesses gain insights into customer sentiment and improve their offerings based on emotional responses.
 
