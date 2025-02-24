@@ -1,0 +1,52 @@
+name: GitHub Clone Count Update Everyday
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Runs daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Get Clone Count
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/traffic/clones" \
+            > clone.json
+          
+      - name: Create or Update Gist
+        id: set_id
+        run: |
+          gist_id=${{ secrets.GIST_ID }}
+          if [ -z "$gist_id" ]; then
+              echo "GIST_ID not found. Creating a new Gist..."
+              gist_id=$(gh gist create clone.json --public | awk -F / '{print $NF}')
+              echo $gist_id | gh secret set GIST_ID
+              echo "GIST=$gist_id" >> $GITHUB_OUTPUT
+          else
+              echo "GIST_ID found. Updating existing Gist..."
+              curl -s -X PATCH \
+                -H "Authorization: token $GITHUB_TOKEN" \
+                -H "Content-Type: application/json" \
+                -d '{"files": {"clone.json": {"content": "'$(jq -Rs . < clone.json)'"}}}' \
+                https://api.github.com/gists/$gist_id
+          fi
+
+      - name: Update README with Badge
+        run: |
+          shields="https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count&url="
+          url="https://gist.githubusercontent.com/${{ github.actor }}/${{ secrets.GIST_ID }}/raw/clone.json"
+          badge="[![GitHub Clones]($shields$url&logo=github)]"
+          sed -i '/<!-- CLONE_BADGE -->/c\ '"$badge"'' README.md
+          
+      - name: Commit and Push Changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
