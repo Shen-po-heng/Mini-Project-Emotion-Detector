@@ -1,6 +1,5 @@
 # Emotion-Detector
-- Clone Count: [PLACEHOLDER]
-- Visit Count: [PLACEHOLDER]
+<a href='https://github.com/MShawon/github-clone-count-badge'><img alt='GitHub Clones' src='https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count&url=https://gist.githubusercontent.com/Shen-po-heng/d342281ded906778c8cd9f38a42ab34d/raw/clone.json&logo=github'></a>
 
 ## Description
 This repository contains an Emotion Detection system designed to process customer feedback in text format and analyze the emotions expressed. The system is intended to be used for performing analytics on customer feedback for signature products, helping businesses gain insights into customer sentiment and improve their offerings based on emotional responses.
